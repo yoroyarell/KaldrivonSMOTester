@@ -1,0 +1,51 @@
+KALDRIVON SMO TESTER 0.1.0 — THIRD-PARTY NOTICES
+
+Kaldrivon SMO Tester includes the open-source components and published interface definitions listed
+below. Each is licensed under its own terms; the full license texts are available from each project
+and, for Python components, in the *.dist-info folders inside the installation.
+
+PYTHON RUNTIME AND PACKAGES
+  CPython 3.12 ............................ Python Software Foundation License
+  aiohttp ................................. Apache-2.0
+  aiohappyeyeballs ........................ PSF-2.0
+  aiosignal / frozenlist / multidict
+  / propcache / yarl ...................... Apache-2.0
+  attrs ................................... MIT
+  cryptography ............................ Apache-2.0 or BSD-3-Clause
+  OpenSSL (bundled by cryptography) ....... Apache-2.0
+  cffi / pycparser ........................ MIT / BSD-3-Clause
+  idna .................................... BSD-3-Clause
+  PyYAML .................................. MIT
+  jsonschema / jsonschema-specifications .. MIT
+  referencing / rpds-py ................... MIT
+  rfc3339-validator ....................... MIT
+  six ..................................... MIT
+  typing-extensions ....................... Python Software Foundation License
+  Robot Framework ......................... Apache-2.0
+  pywebview (Windows) ..................... BSD-3-Clause
+  pythonnet / clr-loader (Windows) ........ MIT
+  bottle / proxy-tools (Windows) .......... MIT / BSD
+  Microsoft Edge WebView2 (Windows) ....... Part of Windows; not redistributed by this installer.
+  PyInstaller bootloader (Windows) ........ GPL-2.0 with bootloader exception (permits
+                                            distribution of the bundled application under
+                                            any license)
+  python-build-standalone (Linux) ......... MPL-2.0 build scripts; contents under their own
+                                            licenses (CPython PSF, OpenSSL Apache-2.0, ...)
+
+PUBLISHED INTERFACE DEFINITIONS (used to check messages against the standards; see specs/SOURCES.md)
+  3GPP OpenAPI files (TS 28.532, 28.623, 28.111, 28.312, 28.104, 28.550, 28.541, 29.222 and
+  their references), Release 18 .......... © 3GPP Organizational Partners (ARIB, ATIS, CCSA,
+                                            ETSI, TSDSI, TTA, TTC); included unmodified
+  O-RAN R1AP R005 v12.00 and A1AP R005 v07.00 OpenAPI documents (Annex A)
+                                            .......... © O-RAN ALLIANCE e.V., Standards
+                                            Collaboration Copyright License v1.0
+                                            (https://www.o-ran.org/sccl); corrections listed
+                                            in specs/SOURCES.md
+  TMF642, TMF639, TMF628 Open API definitions ...... © TM Forum, Apache-2.0
+  ONAP VES CommonEventFormat 30.2.1 schema ......... Apache-2.0
+  O-RAN SC ICS API (informative) .................. Apache-2.0
+
+KALDRIVON BRANDING
+  The Kaldrivon logo is a mark of 1001742069 Ontario Inc. and is not covered by the licenses above.
+
+© 2026 Kaldrivon · https://kaldrivon.com

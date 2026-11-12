@@ -1,0 +1,122 @@
+KALDRIVON SMO TESTER — END USER LICENSE AGREEMENT
+Version 1.0, effective 2026-11-12, for Kaldrivon SMO Tester 0.1.0 and later versions that include it
+
+This End User License Agreement ("Agreement") is between 1001742069 Ontario Inc., operating as
+Kaldrivon ("Kaldrivon", "we"), and you, the person or organization installing or using the
+software ("you"). By installing or using Kaldrivon SMO Tester you accept this Agreement. If you do
+not accept it, do not install or use the software.
+
+1. DEFINITIONS
+   "Software" means Kaldrivon SMO Tester, including its application, test cases, help,
+   documentation and updates provided by Kaldrivon, but not the third-party components and
+   published definitions listed in section 4.
+   "System Under Test" means an SMO, management system or other system you point the Software at.
+
+2. LICENSE GRANT
+   Subject to this Agreement, Kaldrivon grants you a non-exclusive, non-transferable,
+   non-sublicensable license to install and use the Software on computers you own or control,
+   for your internal business, lab, test, evaluation and demonstration purposes. You may write
+   your own test cases (for example Robot Framework files) and use them with the Software; they
+   remain yours.
+
+3. RESTRICTIONS
+   You may not, and may not permit others to:
+   (a) reverse engineer, decompile or disassemble the Software, except to the extent applicable
+       law expressly permits this despite this restriction;
+   (b) sell, rent, lease, sublicense or distribute the Software, or offer it as a hosted service
+       to third parties, without Kaldrivon's prior written permission;
+   (c) remove or alter copyright, trademark or other notices in the Software.
+
+4. THIRD-PARTY COMPONENTS AND PUBLISHED DEFINITIONS
+   The Software includes open-source components and published interface definitions (3GPP,
+   O-RAN Alliance, TM Forum, ONAP) licensed under their own terms, listed in
+   THIRD-PARTY-NOTICES.txt in the installation folder. Those terms govern those components and
+   definitions, and nothing in this Agreement restricts rights granted by them.
+
+5. USE WITH SYSTEMS UNDER TEST
+   5.1 You are responsible for having the authorization of the owner or operator of every System
+       Under Test and network you use the Software against, and for the credentials you provide.
+   5.2 Some test cases change the System Under Test or the network it manages (for example
+       creating subscriptions, measurement jobs, intents or configuration changes). The Software
+       marks these cases and runs them only after your confirmation. Test cases also send
+       deliberately invalid or unauthenticated requests, which may trigger the System Under Test's
+       rate limiting, lockout or security alerts. You are responsible for choosing which cases to
+       run and when.
+   5.3 The Software is intended for lab, test, evaluation and demonstration use. It is not designed
+       or certified for use where its failure could lead to death, personal injury, or severe
+       physical or environmental damage.
+
+6. NO CERTIFICATION OR ENDORSEMENT
+   The Software is an independent product. It is not certified or endorsed by the O-RAN Alliance,
+   3GPP, ETSI, TM Forum, ONAP, any network operator or any equipment vendor. Names of standards and
+   organizations are used only to identify the interfaces the Software tests. A passing result
+   means the observed behaviour matched the bundled published definitions; it is not a
+   certification of the System Under Test. Test data the Software sends is synthetic.
+
+7. YOUR DATA AND PRIVACY
+   7.1 The Software stores its settings, credentials you enter, results and your custom tests
+       locally on your computer.
+   7.2 The Software does not send your data, machine details, results or usage information to
+       Kaldrivon. When you ask it to check for updates, it reads the public list of releases from
+       GitHub.
+   7.3 Data the Software exchanges with the System Under Test is under your control and
+       responsibility.
+
+8. UPDATES AND SUPPORT
+   Kaldrivon may provide updates at its discretion. Support is provided only if agreed separately
+   in writing. Updates may change or remove features; the Agreement version included with an
+   update applies to that update.
+
+9. OWNERSHIP AND FEEDBACK
+   The Software is licensed, not sold. Kaldrivon and its licensors keep all rights, title and
+   interest in the Software, including all intellectual property rights. If you send suggestions
+   or feedback, Kaldrivon may use them without obligation to you.
+
+10. TERM AND TERMINATION
+    This Agreement applies until terminated. It terminates automatically if you breach it and do
+    not cure the breach within thirty (30) days after notice, or immediately for a breach of
+    section 3. You may terminate it at any time by uninstalling the Software. On termination you
+    must stop using the Software. Sections 3, 4, 6, 7, 9, 11, 12, 13 and 14 survive termination.
+
+11. WARRANTY DISCLAIMER
+    TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE",
+    WITHOUT WARRANTY OR CONDITION OF ANY KIND, EXPRESS, IMPLIED OR STATUTORY, INCLUDING ANY
+    WARRANTY OR CONDITION OF MERCHANTABILITY, MERCHANTABLE QUALITY, FITNESS FOR A PARTICULAR
+    PURPOSE, ACCURACY AND NON-INFRINGEMENT. KALDRIVON DOES NOT WARRANT THAT THE SOFTWARE WILL BE
+    ERROR-FREE OR UNINTERRUPTED, OR THAT ITS VERDICTS ARE COMPLETE OR CORRECT FOR EVERY SYSTEM.
+
+12. LIMITATION OF LIABILITY
+    12.1 TO THE MAXIMUM EXTENT PERMITTED BY LAW, KALDRIVON AND ITS SUPPLIERS ARE NOT LIABLE FOR
+         ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY OR PUNITIVE DAMAGES, OR FOR
+         LOSS OF PROFITS, REVENUE, DATA, SERVICE OR NETWORK AVAILABILITY, ARISING OUT OF OR RELATED
+         TO THE SOFTWARE OR THIS AGREEMENT, EVEN IF ADVISED OF THEIR POSSIBILITY.
+    12.2 KALDRIVON'S TOTAL LIABILITY ARISING OUT OF OR RELATED TO THE SOFTWARE OR THIS AGREEMENT
+         IS LIMITED TO THE AMOUNT YOU PAID KALDRIVON FOR THE SOFTWARE IN THE TWELVE (12) MONTHS
+         BEFORE THE CLAIM, OR ONE HUNDRED CANADIAN DOLLARS (CAD 100) IF YOU PAID NOTHING.
+    12.3 Some jurisdictions do not allow certain exclusions or limitations; in that case they apply
+         only to the extent permitted.
+
+13. EXPORT AND SANCTIONS
+    You will comply with all export control and sanctions laws that apply to your use and
+    transfer of the Software, including those of Canada and of any other country that applies.
+
+14. GENERAL
+    14.1 Governing law. This Agreement is governed by the laws of the Province of Ontario and the
+         federal laws of Canada applicable therein, without regard to conflict-of-law rules. The
+         courts of Ontario have exclusive jurisdiction, except that Kaldrivon may seek injunctive
+         relief in any competent court. The United Nations Convention on Contracts for the
+         International Sale of Goods does not apply.
+    14.2 Entire agreement. This Agreement, together with any written agreement with Kaldrivon about
+         the Software, is the entire agreement about the Software and replaces prior statements
+         about it. If they conflict, the signed written agreement prevails.
+    14.3 Severability. If a provision is held unenforceable, it is enforced to the maximum extent
+         permitted and the remaining provisions stay in effect.
+    14.4 Assignment. You may not assign this Agreement without Kaldrivon's written consent.
+         Kaldrivon may assign it in connection with a merger, reorganization or sale of the
+         business.
+    14.5 No waiver. Failure to enforce a provision is not a waiver of it.
+    14.6 Language. The parties have requested that this Agreement be drawn up in English. Les
+         parties ont exigé que la présente convention soit rédigée en anglais.
+
+Kaldrivon (1001742069 Ontario Inc.) · https://kaldrivon.com · info@kaldrivon.com
+© 2026 1001742069 Ontario Inc. Kaldrivon is a name used by 1001742069 Ontario Inc.
