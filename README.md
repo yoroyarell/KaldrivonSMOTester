@@ -1,9 +1,13 @@
 # Kaldrivon SMO Tester
 
 Kaldrivon SMO Tester checks whether an SMO (Service Management and Orchestration) speaks its standard interfaces the
-way the standards say it should. It tests the SMO **from the outside**: you enter the SMO's address and a token, open
-one port on your PC, and run prepared test cases interface by interface. Nothing has to be set up on the SMO: no
-network function to add, no O-Cloud or RIC to configure.
+way the standards say it should. You enter the SMO's address and a token, open a few ports on your PC, and run
+prepared test cases interface by interface. To test how the SMO manages network functions and O-Clouds, you add the
+tester to the SMO as an O-DU and as an O-Cloud; the tester plays both itself.
+
+The tester never changes anything else the SMO manages. It reads what the SMO already has (to find real names
+instead of made-up ones), and the cases that change something act only on the tester's own O-DU, its own O-Cloud and
+its own requests in the SMO. A case that would touch anything else is shown as not applicable.
 
 It is meant for people who build, buy or operate an SMO, and it is written so that someone who is not an interface
 specialist can still follow what each test does and why it passed or failed.
@@ -22,7 +26,7 @@ specialist can still follow what each test does and why it passed or failed.
 
 Verdicts: **PASS**, **FAIL**, **INCONC** (inconclusive: the test could not decide, for example because the SMO asked
 the tester to slow down), **ERROR** (the test could not run, for example the SMO could not be reached), **NONE** (not
-run yet).
+run, or not applicable: for example a case that needs the tester's O-DU when it is not added to the SMO).
 
 A **Plain / Technical** switch keeps jargon out of the way. Underlined words explain themselves when you point at them.
 **Step** runs a use case one test at a time and waits for you after each one.
@@ -32,7 +36,8 @@ A **Plain / Technical** switch keeps jargon out of the way. Underlined words exp
 Every answer and notification from the SMO is compared with the published definitions:
 
 - 3GPP Release 18: TS 28.532, TS 28.623, TS 28.111, TS 28.312, TS 28.104, TS 28.550, TS 29.222 (CAPIF)
-- O-RAN: R1AP R005 v12.00, A1AP R005 v07.00
+- O-RAN: R1AP R005 v12.00, A1AP R005 v07.00, O2IMS R005 v13.00
+- the tester's own O-DU uses the 3GPP Rel-18 YANG models (TS 28.541, TS 28.623)
 - TM Forum: TMF642 v4 (alarms), TMF639 v4 (resource inventory), TMF628 v5 (performance)
 - VES event listener 7.2.1
 
@@ -44,22 +49,31 @@ reported as an **extension**; it fails the test only if you switch on Strict mod
 
 | Interface | The tester plays | What is tested |
 |---|---|---|
-| O1 | a network function | connection, VES events of every domain, 3GPP notifications sent as VES, batches, malformed events, file-ready notification and file download |
-| 3GPP management services | the operator's OSS | fault supervision, provisioning (read and change), configuration change notifications, heartbeat, performance jobs and files, streaming, trace and MDT |
+| O1 | a network function (an O-DU) | connection, VES events of every domain, 3GPP notifications sent as VES, batches, malformed events, file-ready notification and file download; once integrated: the SMO's NETCONF session, YANG library read, subscription, VES destination (3GPP NtfSubscriptionControl) and the O-DU's alarms |
+| 3GPP management services | the operator's OSS | finding what the SMO manages, fault supervision, provisioning (read and change), configuration change notifications, heartbeat, performance jobs and files, streaming, trace and MDT |
 | R1 | an rApp | CAPIF onboarding, discovery, publishing, events and security tokens; R1AP data discovery, access and registration; RAN OAM; A1 policy management |
 | A1 | a Near-RT RIC | A1-EI enrichment jobs and data delivery, A1-ML model training |
+| O2 | an O-Cloud | once integrated: OAuth 2.0 token and mutual TLS, inventory reads, inventory and alarm subscriptions, alarm notifications, acknowledging and clearing alarms, provisioning requests |
 | TM Forum Open APIs | the OSS/BSS | TMF642, TMF639, TMF628 |
 | Intent | the operator's OSS | intents and intent reports (TS 28.312) |
 | Management data analytics | an analytics consumer | analytics requests and reports (TS 28.104) |
 | Interface security | an unauthorised or outdated client | missing and wrong credentials, plain HTTP, old TLS versions, security headers, on every endpoint |
 
-Interfaces where the SMO is the one that starts the conversation (NETCONF towards network functions, the M-Plane,
-A1-P towards a RIC, O2 towards an O-Cloud) are listed in the app with the reason they cannot be tested from outside.
+The Open Fronthaul M-Plane (the SMO managing O-RUs) and the interfaces the SMO does not take part in are listed in the
+app with the reason they are not tested.
 
 Tests that wait for the SMO to call back (notifications, files, streaming) first make the SMO do something themselves,
-for example by sending it an alarm, so you never have to act on the SMO by hand.
+for example by sending it an alarm. A few O2 cases wait for an action in the SMO (for example acknowledging an O-Cloud
+alarm); they say which.
 
-Tests that change something on the SMO (create, modify or delete) are marked and ask before they run.
+Values the tests need (the DN of a managed element, an object to change, an alarm) are read from the SMO first by the
+cases under **3GPP management services › Find what the SMO manages**. They run by themselves when a case needs them.
+
+Cases that change something are marked **tester's O-DU only**, or **own request** for the tester's own subscriptions
+and requests in the SMO. They run without asking, because they never change anything else.
+
+Use cases that do not share anything in the SMO can run at the same time. **Stop all**, in the bar that appears at the
+top while something runs, stops every run.
 
 ## Install
 
@@ -67,7 +81,8 @@ Tests that change something on the SMO (create, modify or delete) are marked and
 
 1. Download `Kaldrivon-SMOTester-0.1.0-Setup.exe` from the release.
 2. Run it. The installer and the program are signed by Kaldrivon.
-3. Leave **Allow the SMO to reach the tester through Windows Firewall (TCP 9443)** ticked so the SMO can send notifications back to the tester.
+3. Leave **Allow the SMO to reach the tester through Windows Firewall (TCP 9643, 1830, 9644)** ticked so the SMO can
+   send notifications to the tester and manage its O-DU and O-Cloud.
 
 Needs the Microsoft Edge WebView2 runtime, which Windows 10 and 11 normally already have.
 
@@ -105,14 +120,18 @@ sha256sum -c SHA256SUMS --ignore-missing
 
 ## First steps
 
-1. **Connection**: enter the SMO's address (for example `https://192.0.2.10:8443`) and its API token, then press
-   **Save and check the connection**. This steps through the first O1 tests: can the SMO's ports be reached, and do
-   the tester's own listeners work.
-2. **Ports**: the SMO has to reach your PC on **TCP 9443** (HTTPS) for notifications, files and streaming, and
-   optionally TCP 9080 (HTTP). The page shows the address the SMO will be given and the firewall commands for Windows
-   and Linux.
-3. Pick an interface in the menu and press **Run** on a use case (or **Step** to go one test at a time).
-4. **Report** opens everything as an HTML report or downloads it as JSON. The **Transaction log** and **Traffic** pages show every message.
+1. **Connection**: enter the SMO's address and its API token, then press **Save and check the connection**. This
+   steps through the first O1 tests: can the SMO's ports be reached, and do the tester's own listeners work. Each
+   section shows, as an example, where Kaldrivon MiniSMO keeps the same setting. **Address the SMO uses to reach this
+   PC** is filled in with this PC's own address; change it if the SMO reaches the PC another way (NAT, a name).
+2. **Integration & ports**: turn on the tester's O-DU and O-Cloud and add them to the SMO with the details shown there
+   (address, ports, user name and password, certificates). Open the ports in this PC's firewall with the commands on
+   the page: **TCP 9643** (HTTPS: notifications, files, streaming), **1830** (NETCONF, the O-DU) and **9644** (O2ims,
+   the O-Cloud); optionally 9680 (plain HTTP).
+3. Pick an interface in the menu and press **Run** on a use case (or **Step** to go one test at a time). The list of
+   cases and the case you look at scroll separately, so **Run** stays in view.
+4. **Export** next to a use case (or at the top of an interface) saves its results as HTML or JSON; **Report** does the
+   same for everything. The **Transaction log** and **Traffic** pages show every message.
 
 Settings are kept in `%APPDATA%\Kaldrivon\SMOTester` (Windows) or `~/.config/kaldrivon-smotester` (Linux).
 
@@ -144,7 +163,7 @@ All keywords: [docs/CUSTOM-TESTS.md](docs/CUSTOM-TESTS.md).
 ```
 kaldrivon-smotester --no-window              # print the link instead of opening a window
 kaldrivon-smotester list                     # interfaces and number of tests
-kaldrivon-smotester run --interface 3gpp-mns --report report.html
+kaldrivon-smotester run --interface 3gpp-mns --include-waits --report report.html
 kaldrivon-smotester robot my-tests/ --outputdir out
 ```
 

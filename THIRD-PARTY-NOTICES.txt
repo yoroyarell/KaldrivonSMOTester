@@ -1,4 +1,4 @@
-KALDRIVON SMO TESTER 0.1.0 — THIRD-PARTY NOTICES
+KALDRIVON SMO TESTER — THIRD-PARTY NOTICES
 
 Kaldrivon SMO Tester includes the open-source components and published interface definitions listed
 below. Each is licensed under its own terms; the full license texts are available from each project
@@ -22,6 +22,7 @@ PYTHON RUNTIME AND PACKAGES
   six ..................................... MIT
   typing-extensions ....................... Python Software Foundation License
   Robot Framework ......................... Apache-2.0
+  AsyncSSH ................................ EPL-2.0 or GPL-2.0-or-later (used under EPL-2.0)
   pywebview (Windows) ..................... BSD-3-Clause
   pythonnet / clr-loader (Windows) ........ MIT
   bottle / proxy-tools (Windows) .......... MIT / BSD
@@ -32,15 +33,20 @@ PYTHON RUNTIME AND PACKAGES
   python-build-standalone (Linux) ......... MPL-2.0 build scripts; contents under their own
                                             licenses (CPython PSF, OpenSSL Apache-2.0, ...)
 
-PUBLISHED INTERFACE DEFINITIONS (used to check messages against the standards; see specs/SOURCES.md)
+PUBLISHED INTERFACE DEFINITIONS (used to check messages against the standards)
   3GPP OpenAPI files (TS 28.532, 28.623, 28.111, 28.312, 28.104, 28.550, 28.541, 29.222 and
   their references), Release 18 .......... © 3GPP Organizational Partners (ARIB, ATIS, CCSA,
                                             ETSI, TSDSI, TTA, TTC); included unmodified
+  3GPP YANG modules (TS 28.623, 28.541 and their references), Release 18, used by the
+  tester's own O-DU ......................... © 3GPP Organizational Partners; included unmodified
+  IETF YANG modules (RFC 6022, 6241, 6243, 6470, 8341, 8342, 8525, and the ietf-yang-types /
+  ietf-inet-types revisions the 3GPP modules use) ... © IETF Trust,
+                                            Simplified BSD License; included unmodified
   O-RAN R1AP R005 v12.00 and A1AP R005 v07.00 OpenAPI documents (Annex A)
                                             .......... © O-RAN ALLIANCE e.V., Standards
                                             Collaboration Copyright License v1.0
-                                            (https://www.o-ran.org/sccl); corrections listed
-                                            in specs/SOURCES.md
+                                            (https://www.o-ran.org/sccl); taken from the published
+                                            specifications with obvious typing errors corrected
   TMF642, TMF639, TMF628 Open API definitions ...... © TM Forum, Apache-2.0
   ONAP VES CommonEventFormat 30.2.1 schema ......... Apache-2.0
   O-RAN SC ICS API (informative) .................. Apache-2.0
