@@ -61,7 +61,9 @@ speaks its standard interfaces the way the standards say it should.
   for TCP 9643, 1830, 1831 and 9644.
 - **Linux x86_64:** `kaldrivon-smotester_0.1.0-1_amd64.deb` (Debian, Ubuntu) or
   `kaldrivon-smotester-0.1.0-1.x86_64.rpm` (RHEL, Rocky, AlmaLinux, Fedora, openSUSE). Opens in the web browser.
-- Check the downloads against `SHA256SUMS` (Linux) and the `.sha256` file next to the Windows installer.
+- Check the downloads against `SHA256SUMS`, which is signed by Kaldrivon (`SHA256SUMS.sig`, public key
+  `kaldrivon-linux-signing.pub`; how to check it is in the user guide, *Check the download*), and the `.sha256` file
+  next to the Windows installer.
 - The user guide is also attached as one HTML page and as a PDF.
 
 See the [user guide](../README.md) to get started.

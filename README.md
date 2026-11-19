@@ -157,15 +157,29 @@ To remove it: `sudo apt remove kaldrivon-smotester` or `sudo dnf remove kaldrivo
 
 ### Check the download
 
-Every release has `.sha256` / `SHA256SUMS` files:
+Every release has `SHA256SUMS` (the SHA-256 of every download), `SHA256SUMS.sig` (Kaldrivon's signature over it) and
+`kaldrivon-linux-signing.pub` (Kaldrivon's public key), and a `.sha256` file next to the Windows installer. The
+Windows installer is also signed by Kaldrivon (Authenticode: right-click › Properties › Digital Signatures).
+
+Kaldrivon's public key (Ed25519; the same key signs Kaldrivon MiniSMO's Linux releases):
 
 ```
+-----BEGIN PUBLIC KEY-----
+MCowBQYDK2VwAyEAVdXd7mnA6dicPxp0GX3hCNlXdcSJ0WCez4kyCoySed0=
+-----END PUBLIC KEY-----
+```
+
+```
+# Linux (OpenSSL 3): first the signature, then the files
+openssl pkeyutl -verify -pubin -inkey kaldrivon-linux-signing.pub -rawin -in SHA256SUMS -sigfile SHA256SUMS.sig
+sha256sum -c SHA256SUMS --ignore-missing
+
 # Windows (PowerShell)
 Get-FileHash .\Kaldrivon-SMOTester-<version>-Setup.exe -Algorithm SHA256
-
-# Linux
-sha256sum -c SHA256SUMS --ignore-missing
 ```
+
+`Signature Verified Successfully` means `SHA256SUMS` comes from Kaldrivon unchanged; each file that `sha256sum` reports
+`OK` matches it. Compare the public key with the one above before you trust it.
 
 ### Updates
 
