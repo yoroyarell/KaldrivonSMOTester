@@ -36,8 +36,8 @@ speaks its standard interfaces the way the standards say it should.
 - **The O-RU in either start-up mode:** the SMO connects to the O-RU (port 1831), or the O-RU calls home to the SMO
   (RFC 8071, port 4334 by default); add the O-RU to the SMO once, in the matching mode. **Call home now** says at once
   whether the SMO took the connection and, if not, why.
-- **Logins per interface:** a general token for every interface, or a separate one for 3GPP management services, R1,
-  TMF and A1.
+- **Logins and addresses per interface:** a general token for every interface, or a separate one for 3GPP management
+  services, R1, TMF and A1; R1, TMF and A1 can also have their own port and base path on the Connection page.
 - **Running:** run or step through a use case or a whole interface, runs that do not clash in parallel, a run bar
   with Stop all, queued status while a run progresses, tests that need another test's object run it first, and
   objects removed in the SMO in the meantime are made again. Before it registers or subscribes again, the tester

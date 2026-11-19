@@ -241,7 +241,9 @@ Scheme, port and login of the SMO's VES collector, where the tester sends O1 eve
 An SMO may give each API its own token: OAuth 2.0 tokens carry scopes (RFC 6749), CAPIF gives an rApp a token per
 service API (3GPP TS 33.122, TS 29.222), and O-RAN security asks for authorisation per API. Tick **Own login** for
 3GPP management services, R1, TMF or A1 to give that interface its own login; the others keep the general one.
-**Same address as northbound** is on by default for R1, TMF and A1.
+**Same address as northbound** is on by default for R1, TMF and A1. Untick it when the SMO serves that API on its
+own port or path: the page then shows the scheme, port, base path and certificate check for that interface (the
+SMO address stays the one above).
 
 ### This PC (the tester)
 
