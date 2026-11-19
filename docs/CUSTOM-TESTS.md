@@ -1,9 +1,19 @@
 # Custom tests with Robot Framework
 
 Custom tests live in the data folder, under `robot/` (Windows: `%APPDATA%\Kaldrivon\SMOTester\robot`, Linux:
-`~/.config/kaldrivon-smotester/robot`). Edit and run them on the **Custom tests** page, or run them from a shell with
-`kaldrivon-smotester robot <file or folder> --outputdir <folder>` on Linux (exit code = number of failed tests, as with
-`robot`).
+`~/.config/kaldrivon-smotester/robot`). Edit and run them on the **Custom tests** page (**New**, **Save**, **Save and
+run**, **Delete**), or run them from a shell with `kaldrivon-smotester robot <file or folder> --outputdir <folder>`
+(exit code = number of failed tests, as with `robot`). Each run shows Robot's own log and report, with the `curl`
+command, raw request and response of every step.
+
+**Add to my tests** on any prepared test makes a custom test from it, so you can start from a working example.
+
+## Keeping and sharing your tests
+
+**Export all** saves every custom test file in one zip, to keep it (for example before **Reset to defaults**) or to
+use it on another PC. **Import…** takes a `.robot` file or such a zip. A file whose name exists already is kept as
+*name (2).robot*, so nothing is overwritten. Files must be UTF-8 text with names of letters, digits, spaces, `-`, `_`
+or `.`, ending in `.robot`.
 
 Start every file with:
 

@@ -42,6 +42,14 @@ PUBLISHED INTERFACE DEFINITIONS (used to check messages against the standards)
   IETF YANG modules (RFC 6022, 6241, 6243, 6470, 8341, 8342, 8525, and the ietf-yang-types /
   ietf-inet-types revisions the 3GPP modules use) ... © IETF Trust,
                                             Simplified BSD License; included unmodified
+  O-RAN WG4 Open Fronthaul M-Plane YANG modules (o-ran-*.yang), used by the tester's own
+  O-RU ...................................... © the O-RAN Alliance (copyright 2019–2024 as stated
+                                            in each module), BSD 3-Clause licence below;
+                                            included unmodified, as published by the O-RAN
+                                            Software Community (sim-o1-ofhmp-interfaces)
+  IETF YANG modules used by the O-RU (RFC 6022, 6241, 6243, 6470, 6991, 7224, 8341, 8342,
+  8343, 8344, 8348, 8525, 9640) ............. © IETF Trust, Simplified BSD License;
+                                            included unmodified
   O-RAN R1AP R005 v12.00 and A1AP R005 v07.00 OpenAPI documents (Annex A)
                                             .......... © O-RAN ALLIANCE e.V., Standards
                                             Collaboration Copyright License v1.0
@@ -50,6 +58,29 @@ PUBLISHED INTERFACE DEFINITIONS (used to check messages against the standards)
   TMF642, TMF639, TMF628 Open API definitions ...... © TM Forum, Apache-2.0
   ONAP VES CommonEventFormat 30.2.1 schema ......... Apache-2.0
   O-RAN SC ICS API (informative) .................. Apache-2.0
+
+O-RAN WG4 M-PLANE YANG MODULES — LICENCE (as stated in each module)
+  Copyright the O-RAN Alliance.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+  FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+  IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+  Redistribution and use in source and binary forms, with or without modification, are permitted
+  provided that the following conditions are met:
+  * Redistributions of source code must retain the above copyright notice, this list of conditions
+    and the above disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice, this list of
+    conditions and the above disclaimer in the documentation and/or other materials provided with
+    the distribution.
+  * Neither the Members of the O-RAN Alliance nor the names of its contributors may be used to
+    endorse or promote products derived from this software without specific prior written
+    permission.
 
 KALDRIVON BRANDING
   The Kaldrivon logo is a mark of 1001742069 Ontario Inc. and is not covered by the licenses above.
